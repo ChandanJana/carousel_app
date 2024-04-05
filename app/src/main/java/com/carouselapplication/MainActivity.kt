@@ -48,7 +48,8 @@ class MainActivity : AppCompatActivity() {
         dataList = appDataBase.sliderDao().getAllSlider()
         if (dataList.isEmpty())
             insertData()
-
+        reDataList.clear()
+        reDataList.addAll(dataList.get(1).slideList)
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         listAdapter = ListAdapter(reDataList)
         binding.recyclerView.adapter = listAdapter
@@ -198,7 +199,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateIndicators(position: Int) {
-        listAdapter.setData(dataList.get(position).slideList)
+        reDataList.clear()
+        reDataList.addAll(dataList.get(position).slideList)
+        listAdapter.setData(reDataList)
     }
 
     private fun filterList(query: String) {

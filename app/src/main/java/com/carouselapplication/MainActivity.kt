@@ -8,15 +8,18 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.Room
+import androidx.room.Room.databaseBuilder
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
+import com.carouselapplication.adapter.CarouselAdapter
 import com.carouselapplication.adapter.ListAdapter
 import com.carouselapplication.databinding.ActivityMainBinding
 import com.carouselapplication.model.ListData
 import com.carouselapplication.model.SliderData
-import com.carouselapplication.utils.CarouselAdapter
 import com.google.android.material.tabs.TabLayoutMediator
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,16 +38,18 @@ class MainActivity : AppCompatActivity() {
             updateIndicators(position)
         }
     }
-
+    val appDataBase : AppDatabase by lazy {
+        AppDatabase.getInstance(this)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        //dataList = appDataBase.sliderDao().getAllSlider()
         // Create dummy data
         dataList.add(
             SliderData(
-                "Image1", R.drawable.image1, mutableListOf(
+                slideTitle = "Image1", slideImage = R.drawable.image1, slideList = mutableListOf(
                     ListData("Item 1", R.drawable.image1),
                     ListData("Item 2", R.drawable.image1),
                     ListData("Item 3", R.drawable.image1),
@@ -75,7 +80,7 @@ class MainActivity : AppCompatActivity() {
         )
         dataList.add(
             SliderData(
-                "Image2", R.drawable.image2, mutableListOf(
+                slideTitle ="Image2", slideImage = R.drawable.image2, slideList = mutableListOf(
                     ListData("Item 26", R.drawable.image2),
                     ListData("Item 27", R.drawable.image2),
                     ListData("Item 28", R.drawable.image2),
@@ -106,7 +111,7 @@ class MainActivity : AppCompatActivity() {
         )
         dataList.add(
             SliderData(
-                "Image3", R.drawable.image3, mutableListOf(
+                slideTitle ="Image3", slideImage = R.drawable.image3, slideList = mutableListOf(
                     ListData("Item 75", R.drawable.image3),
                     ListData("Item 74", R.drawable.image3),
                     ListData("Item 73", R.drawable.image3),

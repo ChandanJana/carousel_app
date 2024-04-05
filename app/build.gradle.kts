@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("androidx.room")
+    id("kotlin-kapt")
 }
 
 android {
@@ -59,5 +60,10 @@ dependencies {
     implementation("androidx.room:room-runtime:$room_version")
     annotationProcessor("androidx.room:room-compiler:$room_version")
     implementation ("com.google.code.gson:gson:2.10.1")
+
+    // To use Kotlin annotation processing tool (kapt)
+    kapt ("androidx.room:room-compiler:$room_version")
+    // To use Kotlin Symbol Processing (KSP)
+    //ksp ("androidx.room:room-compiler:$room_version")
     implementation ("org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.1")
 }

@@ -38,108 +38,16 @@ class MainActivity : AppCompatActivity() {
             updateIndicators(position)
         }
     }
-    val appDataBase : AppDatabase by lazy {
+    private val appDataBase : AppDatabase by lazy {
         AppDatabase.getInstance(this)
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        //dataList = appDataBase.sliderDao().getAllSlider()
-        // Create dummy data
-        dataList.add(
-            SliderData(
-                slideTitle = "Image1", slideImage = R.drawable.image1, slideList = mutableListOf(
-                    ListData("Item 1", R.drawable.image1),
-                    ListData("Item 2", R.drawable.image1),
-                    ListData("Item 3", R.drawable.image1),
-                    ListData("Item 4", R.drawable.image1),
-                    ListData("Item 5", R.drawable.image1),
-                    ListData("Item 6", R.drawable.image1),
-                    ListData("Item 7", R.drawable.image1),
-                    ListData("Item 8", R.drawable.image1),
-                    ListData("Item 9", R.drawable.image1),
-                    ListData("Item 10", R.drawable.image1),
-                    ListData("Item 11", R.drawable.image1),
-                    ListData("Item 12", R.drawable.image1),
-                    ListData("Item 13", R.drawable.image1),
-                    ListData("Item 14", R.drawable.image1),
-                    ListData("Item 15", R.drawable.image1),
-                    ListData("Item 16", R.drawable.image1),
-                    ListData("Item 17", R.drawable.image1),
-                    ListData("Item 18", R.drawable.image1),
-                    ListData("Item 19", R.drawable.image1),
-                    ListData("Item 20", R.drawable.image1),
-                    ListData("Item 21", R.drawable.image1),
-                    ListData("Item 22", R.drawable.image1),
-                    ListData("Item 23", R.drawable.image1),
-                    ListData("Item 24", R.drawable.image1),
-                    ListData("Item 25", R.drawable.image1),
-                )
-            )
-        )
-        dataList.add(
-            SliderData(
-                slideTitle ="Image2", slideImage = R.drawable.image2, slideList = mutableListOf(
-                    ListData("Item 26", R.drawable.image2),
-                    ListData("Item 27", R.drawable.image2),
-                    ListData("Item 28", R.drawable.image2),
-                    ListData("Item 29", R.drawable.image2),
-                    ListData("Item 30", R.drawable.image2),
-                    ListData("Item 31", R.drawable.image2),
-                    ListData("Item 32", R.drawable.image2),
-                    ListData("Item 33", R.drawable.image2),
-                    ListData("Item 34", R.drawable.image2),
-                    ListData("Item 35", R.drawable.image2),
-                    ListData("Item 36", R.drawable.image2),
-                    ListData("Item 37", R.drawable.image2),
-                    ListData("Item 38", R.drawable.image2),
-                    ListData("Item 39", R.drawable.image2),
-                    ListData("Item 40", R.drawable.image2),
-                    ListData("Item 41", R.drawable.image2),
-                    ListData("Item 42", R.drawable.image2),
-                    ListData("Item 43", R.drawable.image2),
-                    ListData("Item 44", R.drawable.image2),
-                    ListData("Item 45", R.drawable.image2),
-                    ListData("Item 46", R.drawable.image2),
-                    ListData("Item 47", R.drawable.image2),
-                    ListData("Item 48", R.drawable.image2),
-                    ListData("Item 49", R.drawable.image2),
-                    ListData("Item 50", R.drawable.image2),
-                )
-            )
-        )
-        dataList.add(
-            SliderData(
-                slideTitle ="Image3", slideImage = R.drawable.image3, slideList = mutableListOf(
-                    ListData("Item 75", R.drawable.image3),
-                    ListData("Item 74", R.drawable.image3),
-                    ListData("Item 73", R.drawable.image3),
-                    ListData("Item 72", R.drawable.image3),
-                    ListData("Item 71", R.drawable.image3),
-                    ListData("Item 70", R.drawable.image3),
-                    ListData("Item 69", R.drawable.image3),
-                    ListData("Item 68", R.drawable.image3),
-                    ListData("Item 67", R.drawable.image3),
-                    ListData("Item 66", R.drawable.image3),
-                    ListData("Item 65", R.drawable.image3),
-                    ListData("Item 64", R.drawable.image3),
-                    ListData("Item 63", R.drawable.image3),
-                    ListData("Item 62", R.drawable.image3),
-                    ListData("Item 61", R.drawable.image3),
-                    ListData("Item 60", R.drawable.image3),
-                    ListData("Item 59", R.drawable.image3),
-                    ListData("Item 58", R.drawable.image3),
-                    ListData("Item 57", R.drawable.image3),
-                    ListData("Item 56", R.drawable.image3),
-                    ListData("Item 55", R.drawable.image3),
-                    ListData("Item 54", R.drawable.image3),
-                    ListData("Item 53", R.drawable.image3),
-                    ListData("Item 52", R.drawable.image3),
-                    ListData("Item 51", R.drawable.image3),
-                )
-            )
-        )
+        dataList = appDataBase.sliderDao().getAllSlider()
+        if (dataList.isEmpty())
+            insertData()
 
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         listAdapter = ListAdapter(reDataList)
@@ -179,6 +87,114 @@ class MainActivity : AppCompatActivity() {
                 filterList(s.toString())
             }
         })
+    }
+
+    private fun insertData(){
+        //dataList = appDataBase.sliderDao().getAllSlider()
+        //if (dataList.isEmpty()) {
+            // Create dummy data
+            dataList.add(
+                SliderData(
+                    slideTitle = "Image1",
+                    slideImage = R.drawable.image1,
+                    slideList = mutableListOf(
+                        ListData("Item 1", R.drawable.image1),
+                        ListData("Item 2", R.drawable.image1),
+                        ListData("Item 3", R.drawable.image1),
+                        ListData("Item 4", R.drawable.image1),
+                        ListData("Item 5", R.drawable.image1),
+                        ListData("Item 6", R.drawable.image1),
+                        ListData("Item 7", R.drawable.image1),
+                        ListData("Item 8", R.drawable.image1),
+                        ListData("Item 9", R.drawable.image1),
+                        ListData("Item 10", R.drawable.image1),
+                        ListData("Item 11", R.drawable.image1),
+                        ListData("Item 12", R.drawable.image1),
+                        ListData("Item 13", R.drawable.image1),
+                        ListData("Item 14", R.drawable.image1),
+                        ListData("Item 15", R.drawable.image1),
+                        ListData("Item 16", R.drawable.image1),
+                        ListData("Item 17", R.drawable.image1),
+                        ListData("Item 18", R.drawable.image1),
+                        ListData("Item 19", R.drawable.image1),
+                        ListData("Item 20", R.drawable.image1),
+                        ListData("Item 21", R.drawable.image1),
+                        ListData("Item 22", R.drawable.image1),
+                        ListData("Item 23", R.drawable.image1),
+                        ListData("Item 24", R.drawable.image1),
+                        ListData("Item 25", R.drawable.image1),
+                    )
+                )
+            )
+            dataList.add(
+                SliderData(
+                    slideTitle = "Image2",
+                    slideImage = R.drawable.image2,
+                    slideList = mutableListOf(
+                        ListData("Item 26", R.drawable.image2),
+                        ListData("Item 27", R.drawable.image2),
+                        ListData("Item 28", R.drawable.image2),
+                        ListData("Item 29", R.drawable.image2),
+                        ListData("Item 30", R.drawable.image2),
+                        ListData("Item 31", R.drawable.image2),
+                        ListData("Item 32", R.drawable.image2),
+                        ListData("Item 33", R.drawable.image2),
+                        ListData("Item 34", R.drawable.image2),
+                        ListData("Item 35", R.drawable.image2),
+                        ListData("Item 36", R.drawable.image2),
+                        ListData("Item 37", R.drawable.image2),
+                        ListData("Item 38", R.drawable.image2),
+                        ListData("Item 39", R.drawable.image2),
+                        ListData("Item 40", R.drawable.image2),
+                        ListData("Item 41", R.drawable.image2),
+                        ListData("Item 42", R.drawable.image2),
+                        ListData("Item 43", R.drawable.image2),
+                        ListData("Item 44", R.drawable.image2),
+                        ListData("Item 45", R.drawable.image2),
+                        ListData("Item 46", R.drawable.image2),
+                        ListData("Item 47", R.drawable.image2),
+                        ListData("Item 48", R.drawable.image2),
+                        ListData("Item 49", R.drawable.image2),
+                        ListData("Item 50", R.drawable.image2),
+                    )
+                )
+            )
+            dataList.add(
+                SliderData(
+                    slideTitle = "Image3",
+                    slideImage = R.drawable.image3,
+                    slideList = mutableListOf(
+                        ListData("Item 75", R.drawable.image3),
+                        ListData("Item 74", R.drawable.image3),
+                        ListData("Item 73", R.drawable.image3),
+                        ListData("Item 72", R.drawable.image3),
+                        ListData("Item 71", R.drawable.image3),
+                        ListData("Item 70", R.drawable.image3),
+                        ListData("Item 69", R.drawable.image3),
+                        ListData("Item 68", R.drawable.image3),
+                        ListData("Item 67", R.drawable.image3),
+                        ListData("Item 66", R.drawable.image3),
+                        ListData("Item 65", R.drawable.image3),
+                        ListData("Item 64", R.drawable.image3),
+                        ListData("Item 63", R.drawable.image3),
+                        ListData("Item 62", R.drawable.image3),
+                        ListData("Item 61", R.drawable.image3),
+                        ListData("Item 60", R.drawable.image3),
+                        ListData("Item 59", R.drawable.image3),
+                        ListData("Item 58", R.drawable.image3),
+                        ListData("Item 57", R.drawable.image3),
+                        ListData("Item 56", R.drawable.image3),
+                        ListData("Item 55", R.drawable.image3),
+                        ListData("Item 54", R.drawable.image3),
+                        ListData("Item 53", R.drawable.image3),
+                        ListData("Item 52", R.drawable.image3),
+                        ListData("Item 51", R.drawable.image3),
+                    )
+                )
+            )
+            appDataBase.sliderDao().insertSlider(dataList)
+            //dataList.clear()
+        //}
     }
 
     private fun updateIndicators(position: Int) {

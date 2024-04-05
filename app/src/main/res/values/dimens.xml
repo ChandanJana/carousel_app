@@ -3,4 +3,6 @@
     <dimen name="item_margin">5dp</dimen>
     <dimen name="image_size">80dp</dimen>
     <dimen name="text_padding">16dp</dimen>
+    <dimen name="i_padding">7dp</dimen>
+    <dimen name="t_padding">25dp</dimen>
 </resources>

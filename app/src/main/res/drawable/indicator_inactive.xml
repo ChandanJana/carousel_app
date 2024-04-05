@@ -1,0 +1,12 @@
+<!-- indicator_inactive.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+
+    <!-- Change the color to represent the inactive state -->
+    <solid android:color="@android:color/darker_gray" />
+
+    <!-- Define the size of the indicator -->
+    <size
+        android:width="10dp"
+        android:height="10dp" />
+</shape>

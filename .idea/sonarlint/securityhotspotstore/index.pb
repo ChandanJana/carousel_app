@@ -1,0 +1,19 @@
+
+D
+app/build.gradle.kts,d\2\d2a4383452aad84a18429a5844d31330a012a9e6
+i
+9app/src/main/java/com/carouselapplication/CarouselView.kt,9\5\959665b98b293feb63187e9ed891bb481f3dbd2e
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+l
+<app/src/main/java/com/carouselapplication/CarouselAdapter.kt,e\2\e29158358133fa86e3836565edae819f783dc234
+g
+7app/src/main/java/com/carouselapplication/SliderData.kt,b\f\bf2dabce462db4f615de78f35542c872db44d670
+@
+build.gradle.kts,d\b\dbcff70658daf80b53ce624f6adcaa529df5ed8d
+i
+9app/src/main/java/com/carouselapplication/MainActivity.kt,a\c\ac16be6798304a6fb8f844970cc8c41819153399
+h
+8app/src/main/java/com/carouselapplication/ListAdapter.kt,b\e\be8e6af8492479855ef7add4ce305e973e6c5a28
+e
+5app/src/main/java/com/carouselapplication/ListData.kt,d\b\db1be243c23b5d2f1a26105e76f71d6b2bfe1b64

@@ -17,3 +17,9 @@ h
 8app/src/main/java/com/carouselapplication/ListAdapter.kt,b\e\be8e6af8492479855ef7add4ce305e973e6c5a28
 e
 5app/src/main/java/com/carouselapplication/ListData.kt,d\b\db1be243c23b5d2f1a26105e76f71d6b2bfe1b64
+r
+Bapp/src/main/java/com/carouselapplication/utils/CarouselAdapter.kt,9\e\9e139fce9f0e099a2a50f172bc76c6bc9f52856f
+o
+?app/src/main/java/com/carouselapplication/utils/CarouselView.kt,7\5\751052cd368b6d57d4f617114108c7b2f4444c36
+p
+@app/src/main/java/com/carouselapplication/adapter/ListAdapter.kt,7\2\72e2cfd279c8fcbb3294b983046d5b2f29e834de
